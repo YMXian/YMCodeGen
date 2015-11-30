@@ -8,7 +8,7 @@ class KissShot::Spec
   attr_accessor :metadata
   # @return [String] content
   attr_accessor :content
-  # @return [String] line prefix
+  # @return [String] line prefix, such as indent, comment etc.
   attr_accessor :line_prefix
 
   # Create a instance of anonymous subclass, and eval instance

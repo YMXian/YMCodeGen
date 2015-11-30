@@ -31,6 +31,11 @@ content = KissShot::Spec.run do
     objc_method   false, :void, 'do_it', ["NSString*", "__nonnull"], :value
     objc_method   false, :void, 'do_it', ["NSString*", "__nonnull"], :value, :somethin_else, ["NSString*", "__nullable"], :value2
   end
+  objc_implementation :Wow do
+    objc_method   false, ['NSString*', :__nonnull], 'do_it' do
+      line "return @\"1\";"
+    end
+  end
 end
 
 puts content

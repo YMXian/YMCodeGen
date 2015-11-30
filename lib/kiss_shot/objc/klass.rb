@@ -24,6 +24,16 @@ module KissShot::ObjC::Klass
     self
   end
 
+  # Append @implementation
+  #
+  # @param name [String] class name
+  # @return self
+  def objc_implementation(name)
+    line "@implementation #{name}"
+    yield if block_given?
+    line "@end"
+  end
+
   # interface raw bracket for instance variable
   # @return self
   def objc_interface_bracket
