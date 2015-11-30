@@ -1,6 +1,7 @@
 #encoding: utf-8
 
 module KissShot::ObjC::Import
+  include KissShot::ObjC::Base
 
   # For `#import <???>`, d is for diamond
   # @param input [String] things in `#import <???>`

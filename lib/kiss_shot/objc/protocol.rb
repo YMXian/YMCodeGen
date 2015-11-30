@@ -1,6 +1,7 @@
 #encoding: utf-8
 
 module KissShot::ObjC::Protocol
+  include KissShot::ObjC::Base
 
   # Add line for @required
   # @return self
@@ -30,10 +31,10 @@ module KissShot::ObjC::Protocol
     if block_given?
       # If block given, add supers, and yield
       if supers.count
-        raw " <#{supers.join(', ')}>"
+        raw " #{_objc_diamond_array(supers)}"
       end
       # new line, no indent
-      line
+      raw "\n"
       # yield
       yield
       # add @end

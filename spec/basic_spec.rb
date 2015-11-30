@@ -12,4 +12,7 @@ spec.use(KissShot::ObjC::All)
   spec.line "// hello"
 }
 
+spec.objc_class "Wow"
+spec.objc_interface "Wow", "NSProxy", ["NSCopying", "NSCoding"]
+
 puts spec.content
