@@ -13,6 +13,9 @@ spec.use(KissShot::ObjC::All)
 }
 
 spec.objc_class "Wow"
-spec.objc_interface "Wow", "NSProxy", ["NSCopying", "NSCoding"]
+spec.objc_interface "Wow", "NSProxy", ["NSCopying", "NSCoding"] do
+  spec.objc_property "something", "NSString*"
+  spec.objc_property "something2", [:IBOutlet, "UIView*", "__nullable"]
+end
 
 puts spec.content

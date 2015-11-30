@@ -21,7 +21,7 @@ module KissShot::ObjC::Protocol
 
   # For @protocol
   # @param name [String] protocol name
-  # @param supers [Array] array of super protocols, default to ['NSObject']
+  # @param supers [Array, String] super protocols, default to ['NSObject']
   # @return self
   def objc_protocol(name, supers = ["NSObject"])
     # Add new line
@@ -31,7 +31,7 @@ module KissShot::ObjC::Protocol
     if block_given?
       # If block given, add supers, and yield
       if supers.count
-        raw " #{_objc_diamond_array(supers)}"
+        raw " #{_objc_diamond_array(Array.wrap(supers))}"
       end
       # new line, no indent
       raw "\n"
