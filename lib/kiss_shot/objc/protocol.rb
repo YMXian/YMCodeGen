@@ -2,6 +2,9 @@
 
 module KissShot::ObjC::Protocol
 
+  # For @protocol
+  # +name+:: protocol name
+  # +supers+:: array of super protocols, default to ['NSObject']
   def objc_protocol(name, supers = ["NSObject"])
     # Add new line
     line
