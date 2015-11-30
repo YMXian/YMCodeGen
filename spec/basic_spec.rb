@@ -20,6 +20,9 @@ spec.objc_interface "Wow", "NSProxy", ["NSCopying", "NSCoding"] do
   end
   spec.objc_property "something", "NSString*"
   spec.objc_property "something2", [:IBOutlet, "UIView*", "__nullable"]
+  spec.objc_method   false, :void, 'do_it'
+  spec.objc_method   false, :void, 'do_it', ["NSString*", "__nonnull"], :value
+  spec.objc_method   false, :void, 'do_it', ["NSString*", "__nonnull"], :value, :somethin_else, ["NSString*", "__nullable"], :value2
 end
 
 puts spec.content

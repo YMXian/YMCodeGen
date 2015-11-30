@@ -54,7 +54,7 @@ class KissShot::Spec
   def raw(input = "", prepend_indent = false)
     return unless input.length > 0
     self.content += " " * indent if prepend_indent
-    self.content += input
+    self.content += input.to_s
     self
   end
 

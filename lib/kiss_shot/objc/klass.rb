@@ -53,4 +53,38 @@ module KissShot::ObjC::Klass
     line "@property #{_objc_bracket_array(Array.wrap(options))} #{Array.wrap(type).join(" ")} #{name};"
     self
   end
+
+  # Append method
+  #
+  # @param static [true, false] if is a static(class) method
+  # @param return_type [String, Symbol, Array] return type
+  # @param components remaining components
+  def objc_method(*args)
+    sign = args.shift ? "+" : "-"
+    type = args.shift
+      raw "#{sign} (#{Array.wrap(type).join(" ")})", true
+    if args.count == 1
+      raw " "
+      raw "#{args.shift}"
+    else
+      raise "Bad args for #objc_method" unless args.count % 3 == 0
+      args.each_slice(3) do |slice|
+        raw " "
+        raw slice[0]
+        raw ":"
+        raw "(#{Array.wrap(slice[1]).join(" ")})"
+        raw slice[2]
+      end
+    end
+    if block_given?
+      raw " {\n"
+      indent_up
+      yield
+      indent_down
+      line "}"
+    else
+      raw ";\n"
+    end
+    self
+  end
 end
