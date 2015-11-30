@@ -8,7 +8,7 @@ Gem::Specification.new do |s|
   s.description = "KissShot is a simple Objective-C code generator"
   s.authors     = ["Yanke Guo"]
   s.email       = 'guoyk@1mxian.com'
-  s.files       = ["lib/**/*.rb"]
+  s.files       = Dir["lib/**/*.rb"]
   s.require_paths = ["lib"]
   s.add_runtime_dependency "activesupport", "~> 4.2"
   s.homepage    = 'http://rubygems.org/gems/kiss_shot'
