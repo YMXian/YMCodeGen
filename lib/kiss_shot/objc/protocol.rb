@@ -6,7 +6,6 @@ module KissShot::ObjC::Protocol
   # Add line for @required
   # @return self
   def objc_protocol_required
-    line
     line "@required"
     self
   end
@@ -14,7 +13,6 @@ module KissShot::ObjC::Protocol
   # Add line for @optional
   # @return self
   def objc_protocol_optional
-    line
     line "@optional"
     self
   end
@@ -24,8 +22,6 @@ module KissShot::ObjC::Protocol
   # @param supers [Array, String] super protocols, default to ['NSObject']
   # @return self
   def objc_protocol(name, supers = ["NSObject"])
-    # Add new line
-    line
     # Declare
     raw "@protocol #{name}"
     if block_given?

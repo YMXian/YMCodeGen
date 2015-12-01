@@ -13,7 +13,7 @@ module KissShot::ObjC::Macro
   # Add /**/ comment
   # @return self
   def objc_block_comment
-    line "/*"
+    line "/**"
     push_line_prefix " *  "
     yield if block_given?
     pop_line_prefix  " *  "

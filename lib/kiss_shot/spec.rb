@@ -92,7 +92,13 @@ class KissShot::Spec
   # @param input [String] content to append
   # @return [KissShot::Spec] self
   def line(input = "")
-    raw input, true
-    raw "\n"
+    if input.length > 0
+      self.content += self.line_prefix
+    else
+      self.content += self.line_prefix.rstrip
+    end
+    self.content += input.to_s
+    self.content += "\n"
+    self
   end
 end
